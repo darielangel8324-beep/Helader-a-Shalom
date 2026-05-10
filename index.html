@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --coral: #FF6B6B;
+    --mango: #FFB347;
+    --fresa: #FF4E8A;
+    --menta: #4ECDC4;
+    --crema: #FFF8F0;
+    --oscuro: #2D1B0E;
+    --texto: #4A2C1A;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--crema);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255,248,240,0.92);
+    backdrop-filter: blur(8px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 32px;
+    border-bottom: 2px solid var(--mango);
+  }
+  .nav-logo { font-family: 'Pacifico', cursive; font-size: 1.5rem; color: var(--coral); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--texto); font-weight: 700; font-size: 0.9rem; transition: color .2s; }
+  .nav-links a:hover { color: var(--coral); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FFB347 50%, #FF4E8A 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 100px 24px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '🍦🍧🍨🍦🍧🍨🍦🍧';
+    position: absolute; top: 20px; left: 0; right: 0;
+    font-size: 2rem; opacity: 0.15; letter-spacing: 20px;
+    white-space: nowrap;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.25);
+    color: #fff; border-radius: 30px;
+    padding: 6px 20px; font-size: 0.85rem; font-weight: 700;
+    margin-bottom: 20px; letter-spacing: 1px;
+    backdrop-filter: blur(4px);
+  }
+  .hero h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: #fff;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    animation: fadeUp .8s ease both;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.92);
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 600;
+    margin-bottom: 36px;
+    animation: fadeUp .8s .2s ease both;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: fadeUp .8s .4s ease both; }
+  .btn-primary {
+    background: #fff; color: var(--coral);
+    border: none; border-radius: 50px;
+    padding: 14px 32px; font-size: 1rem; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.2); }
+  .btn-wa {
+    background: #25D366; color: #fff;
+    border: none; border-radius: 50px;
+    padding: 14px 32px; font-size: 1rem; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+    transition: transform .2s;
+  }
+  .btn-wa:hover { transform: translateY(-3px); }
+
+  .hero-emoji {
+    font-size: 5rem; margin-bottom: 16px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECCIÓN GENÉRICA */
+  section { padding: 72px 24px; }
+  .section-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    text-align: center; margin-bottom: 12px;
+    color: var(--coral);
+  }
+  .section-sub {
+    text-align: center; color: #888; font-size: 1rem; margin-bottom: 48px;
+  }
+
+  /* PRODUCTOS */
+  .productos { background: #fff; }
+  .grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px; max-width: 900px; margin: 0 auto;
+  }
+  .card-producto {
+    background: var(--crema);
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+    cursor: pointer;
+  }
+  .card-producto:hover {
+    transform: translateY(-6px);
+    border-color: var(--mango);
+    box-shadow: 0 12px 32px rgba(255,179,71,0.2);
+  }
+  .card-emoji { font-size: 3.2rem; margin-bottom: 12px; }
+  .card-nombre { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; color: var(--oscuro); }
+  .card-desc { font-size: 0.85rem; color: #888; margin-bottom: 14px; line-height: 1.5; }
+  .card-precio {
+    background: var(--coral);
+    color: #fff; border-radius: 20px;
+    padding: 6px 18px; font-weight: 700;
+    display: inline-block; font-size: 0.9rem;
+  }
+
+  /* SOBRE NOSOTROS */
+  .sobre { background: linear-gradient(135deg, #4ECDC4, #45B7D1); }
+  .sobre-inner {
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .sobre h2 { color: #fff; }
+  .sobre .section-sub { color: rgba(255,255,255,0.8); }
+  .sobre-texto {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 20px; padding: 32px;
+    color: #fff; font-size: 1.05rem; line-height: 1.8;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  /* HORARIOS */
+  .horarios { background: var(--crema); }
+  .horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; max-width: 700px; margin: 0 auto;
+  }
+  .horario-card {
+    background: #fff; border-radius: 16px;
+    padding: 24px; text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--mango);
+  }
+  .horario-dia { font-weight: 700; font-size: 1rem; margin-bottom: 8px; color: var(--oscuro); }
+  .horario-hora { font-size: 1.3rem; font-weight: 700; color: var(--coral); }
+
+  /* UBICACIÓN */
+  .ubicacion { background: #fff; }
+  .ubicacion-inner { max-width: 700px; margin: 0 auto; }
+  .mapa-placeholder {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-radius: 20px; height: 220px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 3rem; margin-bottom: 24px;
+    border: 2px dashed #a5d6a7;
+  }
+  .mapa-placeholder p { font-size: 0.9rem; color: #555; margin-top: 8px; }
+  .info-dir {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--crema); border-radius: 14px;
+    padding: 18px 22px; margin-bottom: 12px;
+  }
+  .info-icon { font-size: 1.4rem; }
+  .info-texto { font-size: 0.95rem; line-height: 1.5; }
+  .info-texto strong { display: block; font-size: 0.8rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--oscuro); color: rgba(255,255,255,0.7);
+    text-align: center; padding: 32px 24px;
+    font-size: 0.9rem;
+  }
+  footer .footer-logo { font-family: 'Pacifico', cursive; font-size: 1.8rem; color: var(--mango); margin-bottom: 8px; }
+
+  /* BOTÓN WA FLOTANTE */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 200;
+    background: #25D366; color: #fff;
+    border-radius: 50px; padding: 14px 22px;
+    font-weight: 700; font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    display: flex; align-items: center; gap: 8px;
+    animation: pulseWA 2.5s infinite;
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.06); }
+  @keyframes pulseWA {
+    0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Shalom 🍦</span>
+  <ul class="nav-links">
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#horarios">Horarios</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✨ Helados artesanales en Ocaña</div>
+  <div class="hero-emoji">🍦</div>
+  <h1>Heladería<br>Shalom</h1>
+  <p>Sabores que alegran el alma, hechos con amor y los mejores ingredientes</p>
+  <div class="hero-btns">
+    <a href="#productos" class="btn-primary">Ver nuestros sabores</a>
+    <a href="https://wa.me/573000000000" class="btn-wa">📲 Pedir por WhatsApp</a>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="productos" id="productos">
+  <h2 class="section-title">Nuestros sabores</h2>
+  <p class="section-sub">Todos nuestros helados son preparados frescos cada día 🌿</p>
+  <div class="grid-productos">
+    <div class="card-producto">
+      <div class="card-emoji">🍓</div>
+      <div class="card-nombre">Fresa natural</div>
+      <div class="card-desc">Helado cremoso con fresas frescas del campo</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto">
+      <div class="card-emoji">🥭</div>
+      <div class="card-nombre">Mango biche</div>
+      <div class="card-desc">El sabor tropical que nos encanta a todos</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto">
+      <div class="card-emoji">🍫</div>
+      <div class="card-nombre">Chocolate</div>
+      <div class="card-desc">Intenso y cremoso, para los amantes del cacao</div>
+      <span class="card-precio">$3.500</span>
+    </div>
+    <div class="card-producto">
+      <div class="card-emoji">🍋</div>
+      <div class="card-nombre">Limón</div>
+      <div class="card-desc">Refrescante y ácido, perfecto para el calor</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto">
+      <div class="card-emoji">🥥</div>
+      <div class="card-nombre">Coco</div>
+      <div class="card-desc">Suave y exótico, con coco rallado por encima</div>
+      <span class="card-precio">$3.500</span>
+    </div>
+    <div class="card-producto">
+      <div class="card-emoji">🍨</div>
+      <div class="card-nombre">Combinado</div>
+      <div class="card-desc">Elige dos sabores y disfruta lo mejor de dos mundos</div>
+      <span class="card-precio">$4.500</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <h2 class="section-title" style="color:#fff">¿Quiénes somos?</h2>
+    <p class="section-sub">Una historia hecha de sabor y cariño</p>
+    <div class="sobre-texto">
+      En <strong>Heladería Shalom</strong> creemos que un buen helado puede alegrar cualquier día. Somos un negocio familiar de Ocaña, con recetas propias y el compromiso de usar solo ingredientes frescos y naturales.<br><br>
+      Nuestro nombre significa <em>paz</em> — y eso es exactamente lo que queremos que sientas con cada cucharada. 🕊️
+    </div>
+  </div>
+</section>
+
+<!-- HORARIOS -->
+<section class="horarios" id="horarios">
+  <h2 class="section-title">Horarios</h2>
+  <p class="section-sub">Te esperamos con los brazos abiertos</p>
+  <div class="horarios-grid">
+    <div class="horario-card">
+      <div class="horario-dia">Lunes a viernes</div>
+      <div class="horario-hora">10:00 am – 8:00 pm</div>
+    </div>
+    <div class="horario-card">
+      <div class="horario-dia">Sábados</div>
+      <div class="horario-hora">10:00 am – 9:00 pm</div>
+    </div>
+    <div class="horario-card">
+      <div class="horario-dia">Domingos</div>
+      <div class="horario-hora">11:00 am – 7:00 pm</div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="ubicacion" id="ubicacion">
+  <h2 class="section-title">¿Dónde estamos?</h2>
+  <p class="section-sub">Ven a visitarnos o escríbenos para pedidos a domicilio</p>
+  <div class="ubicacion-inner">
+    <div class="mapa-placeholder">
+      📍
+      <p>Aquí va el mapa de Google Maps</p>
+    </div>
+    <div class="info-dir">
+      <span class="info-icon">📍</span>
+      <div class="info-texto">
+        <strong>Dirección</strong>
+        Barrio [nombre del barrio], Ocaña, Norte de Santander
+      </div>
+    </div>
+    <div class="info-dir">
+      <span class="info-icon">📱</span>
+      <div class="info-texto">
+        <strong>WhatsApp</strong>
+        +57 300 000 0000
+      </div>
+    </div>
+    <div class="info-dir">
+      <span class="info-icon">📸</span>
+      <div class="info-texto">
+        <strong>Instagram</strong>
+        @heladeriashalom
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Shalom 🍦</div>
+  <p>Hecho con amor en Ocaña 🇨🇴 · © 2025 Heladería Shalom</p>
+  <p style="margin-top:8px;font-size:0.8rem;opacity:0.5">Página web desarrollada por [Creator Studio]</p>
+</footer>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/573000000000" class="wa-float" target="_blank">
+  💬 Pedir ahora
+</a>
+
+</body>
+</html>
