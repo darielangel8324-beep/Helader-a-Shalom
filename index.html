@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -159,7 +161,19 @@
   border-radius: 12px;
   margin-bottom: 12px;
 }
-
+.social-link {
+  color: var(--coral);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .2s;
+}
+.social-link:hover {
+  color: var(--fresa);
+}
 
 
   /* SOBRE NOSOTROS */
@@ -262,7 +276,7 @@
   <p>Sabores que alegran el alma, hechos con amor y los mejores ingredientes</p>
   <div class="hero-btns">
     <a href="#productos" class="btn-primary">Ver nuestros sabores</a>
-    <a href="https://wa.me/573000000000" class="btn-wa">📲 Pedir por WhatsApp</a>
+    <a href="https://wa.me/573106691812" class="btn-wa">📲 Pedir por WhatsApp</a>
   </div>
 </section>
 
@@ -275,7 +289,7 @@
       <img src="img/Kiwi.jpeg" alt="Helado de Kiwi" class="card-img">
       <div class="card-nombre">Kiwi</div>
       <div class="card-desc">Helado cremoso con Kiwi fresco del campo</div>
-      <span class="card-precio">$3.000</span>
+      <span class="card-precio">$3.500</span>
     </div>
     <div class="card-producto">
       <img src="img/tres leches.jpeg" alt="Helado de Coco" class="card-img">
@@ -328,16 +342,13 @@
   <p class="section-sub">Te esperamos con los brazos abiertos</p>
   <div class="horarios-grid">
     <div class="horario-card">
-      <div class="horario-dia">Lunes a viernes</div>
+      <div class="horario-dia">Lunes a Sábado</div>
       <div class="horario-hora">10:00 am – 8:00 pm</div>
     </div>
-    <div class="horario-card">
-      <div class="horario-dia">Sábados</div>
-      <div class="horario-hora">10:00 am – 9:00 pm</div>
-    </div>
+    
     <div class="horario-card">
       <div class="horario-dia">Domingos</div>
-      <div class="horario-hora">11:00 am – 7:00 pm</div>
+      <div class="horario-hora">2:00 pm – 7:00 pm</div>
     </div>
   </div>
 </section>
@@ -362,14 +373,16 @@
       <span class="info-icon">📱</span>
       <div class="info-texto">
         <strong>WhatsApp</strong>
-        +57 300 000 0000
+        3153211626  -  3106691812
       </div>
     </div>
     <div class="info-dir">
       <span class="info-icon">📸</span>
       <div class="info-texto">
         <strong>Instagram</strong>
-        @heladeriashalom
+       <a href="https://www.instagram.com/heladeria.shalom" target="_blank" class="social-link">
+  <i class="fab fa-instagram"></i> @heladeriashalom
+</a>
       </div>
     </div>
   </div>
