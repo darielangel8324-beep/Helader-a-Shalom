@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -97,12 +94,10 @@
     transition: transform .2s;
   }
   .btn-wa:hover { transform: translateY(-3px); }
-
   .hero-emoji {
     font-size: 5rem; margin-bottom: 16px;
     animation: bounce 2s infinite;
   }
-
   @keyframes bounce {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-14px); }
@@ -124,17 +119,41 @@
     text-align: center; color: #888; font-size: 1rem; margin-bottom: 48px;
   }
 
+  /* PESTAÑAS */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .tab {
+    background: #fff;
+    border: 2px solid var(--mango);
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--texto);
+    transition: all .2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .tab:hover { background: var(--mango); color: #fff; }
+  .tab.active { background: var(--coral); border-color: var(--coral); color: #fff; }
+
   /* PRODUCTOS */
-  .productos { background: #fff; }
   .grid-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px; max-width: 900px; margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto;
   }
   .card-producto {
     background: var(--crema);
     border-radius: 20px;
-    padding: 28px 20px;
+    padding: 16px;
     text-align: center;
     border: 2px solid transparent;
     transition: transform .25s, border-color .25s, box-shadow .25s;
@@ -145,42 +164,25 @@
     border-color: var(--mango);
     box-shadow: 0 12px 32px rgba(255,179,71,0.2);
   }
-  .card-emoji { font-size: 3.2rem; margin-bottom: 12px; }
-  .card-nombre { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; color: var(--oscuro); }
-  .card-desc { font-size: 0.85rem; color: #888; margin-bottom: 14px; line-height: 1.5; }
+  .card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .card-nombre { font-weight: 700; font-size: 1rem; margin-bottom: 6px; color: var(--oscuro); }
+  .card-desc { font-size: 0.82rem; color: #888; margin-bottom: 12px; line-height: 1.5; }
   .card-precio {
     background: var(--coral);
     color: #fff; border-radius: 20px;
     padding: 6px 18px; font-weight: 700;
     display: inline-block; font-size: 0.9rem;
   }
-.card-img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-.social-link {
-  color: var(--coral);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color .2s;
-}
-.social-link:hover {
-  color: var(--fresa);
-}
-
 
   /* SOBRE NOSOTROS */
   .sobre { background: linear-gradient(135deg, #4ECDC4, #45B7D1); }
-  .sobre-inner {
-    max-width: 700px; margin: 0 auto; text-align: center;
-  }
+  .sobre-inner { max-width: 700px; margin: 0 auto; text-align: center; }
   .sobre h2 { color: #fff; }
   .sobre .section-sub { color: rgba(255,255,255,0.8); }
   .sobre-texto {
@@ -218,7 +220,7 @@
     font-size: 3rem; margin-bottom: 24px;
     border: 2px dashed #a5d6a7;
   }
-  .mapa-placeholder p { font-size: 0.9rem; color: #555; margin-top: 8px; }
+  .mapa-placeholder a { font-size: 0.9rem; color: #555; margin-top: 8px; }
   .info-dir {
     display: flex; align-items: flex-start; gap: 12px;
     background: var(--crema); border-radius: 14px;
@@ -227,12 +229,18 @@
   .info-icon { font-size: 1.4rem; }
   .info-texto { font-size: 0.95rem; line-height: 1.5; }
   .info-texto strong { display: block; font-size: 0.8rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+  .social-link {
+    color: var(--coral); text-decoration: none;
+    font-weight: 700; font-size: 1rem;
+    display: flex; align-items: center; gap: 8px;
+    transition: color .2s;
+  }
+  .social-link:hover { color: var(--fresa); }
 
   /* FOOTER */
   footer {
     background: var(--oscuro); color: rgba(255,255,255,0.7);
-    text-align: center; padding: 32px 24px;
-    font-size: 0.9rem;
+    text-align: center; padding: 32px 24px; font-size: 0.9rem;
   }
   footer .footer-logo { font-family: 'Pacifico', cursive; font-size: 1.8rem; color: var(--mango); margin-bottom: 8px; }
 
@@ -282,45 +290,137 @@
 
 <!-- PRODUCTOS -->
 <section class="productos" id="productos">
-  <h2 class="section-title">Nuestros sabores</h2>
-  <p class="section-sub">Todos nuestros helados son preparados frescos cada día 🌿</p>
+  <h2 class="section-title">Nuestro menú</h2>
+  <p class="section-sub">Todos preparados frescos con los mejores ingredientes 🌿</p>
+
+  <div class="tabs">
+    <button class="tab active" onclick="filtrar(this, 'helados')">🍦 Helados</button>
+    <button class="tab" onclick="filtrar(this, 'waffles')">🧇 Waffles</button>
+    <button class="tab" onclick="filtrar(this, 'malteadas')">🥤 Malteadas</button>
+    <button class="tab" onclick="filtrar(this, 'jugos')">🍹 Jugos</button>
+    <button class="tab" onclick="filtrar(this, 'especiales')">⭐ Especiales</button>
+  </div>
+
   <div class="grid-productos">
-    <div class="card-producto">
-      <img src="img/Kiwi.jpeg" alt="Helado de Kiwi" class="card-img">
-      <div class="card-nombre">Kiwi</div>
-      <div class="card-desc">Helado cremoso con Kiwi fresco del campo</div>
-      <span class="card-precio">$3.500</span>
-    </div>
-    <div class="card-producto">
-      <img src="img/tres leches.jpeg" alt="Helado de Coco" class="card-img">
-      <div class="card-nombre">Tres leches</div>
-      <div class="card-desc">Una experiencia cremosa que derrite tu antojo</div>
-      <span class="card-precio">$3.000</span>
-    </div>
-    <div class="card-producto">
-      <img src="img/Chocolate.jpeg" alt="Helado de Chocolate" class="card-img">
+
+    <!-- HELADOS -->
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/Chocolate.jpeg" alt="Helado de chocolate" class="card-img">
       <div class="card-nombre">Chocolate</div>
       <div class="card-desc">Intenso y cremoso, para los amantes del cacao</div>
-      <span class="card-precio">$3.500</span>
-    </div>
-    <div class="card-producto">
-      <img src="img/tropical.jpeg" alt="Helado sabor tropical" class="card-img">
-      <div class="card-nombre">Tropical</div>
-      <div class="card-desc"> Sensación refrescante, alma caribeña</div>
       <span class="card-precio">$3.000</span>
     </div>
-    <div class="card-producto">
-      <img src="img/Coco.jpeg" alt="Helado de coco" class="card-img">
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/Kiwi.jpeg" alt="Helado de kiwi" class="card-img">
+      <div class="card-nombre">Kiwi</div>
+      <div class="card-desc">Helado cremoso con kiwi fresco del campo</div>
+      <span class="card-precio">$3.500</span>
+    </div>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/tropical.jpeg" alt="Helado tropical" class="card-img">
+      <div class="card-nombre">Tropical</div>
+      <div class="card-desc">Refrescante con alma caribeña, perfecto para el calor</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/coco.jpeg" alt="Helado de coco" class="card-img">
       <div class="card-nombre">Coco</div>
       <div class="card-desc">Suave y exótico, con coco rallado por encima</div>
       <span class="card-precio">$3.500</span>
     </div>
-    <div class="card-producto">
-      <img src="img/combinado.jpeg" alt="Helado combinado" class="card-img">
-      <div class="card-nombre">Combinado</div>
-      <div class="card-desc">Elige dos sabores y disfruta lo mejor de dos mundos</div>
-      <span class="card-precio">$4.500</span>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/maracumango.jpeg" alt="Helado maracumango" class="card-img">
+      <div class="card-nombre">Maracumango</div>
+      <div class="card-desc">Mezcla tropical de maracuyá y mango</div>
+      <span class="card-precio">$3.000</span>
     </div>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/mora.jpeg" alt="Helado de mora" class="card-img">
+      <div class="card-nombre">Mora</div>
+      <div class="card-desc">Cremoso y delicioso sabor a mora natural</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/fresa.jpeg" alt="Helado de fresa" class="card-img">
+      <div class="card-nombre">Fresa</div>
+      <div class="card-desc">Helado cremoso con fresas frescas del campo</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/oreo.jpeg" alt="Helado de oreo" class="card-img">
+      <div class="card-nombre">Oreo</div>
+      <div class="card-desc">Helado cremoso con trozos de galleta oreo</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+    <div class="card-producto" data-categoria="helados">
+      <img src="img/durazno.jpeg" alt="Helado de durazno" class="card-img">
+      <div class="card-nombre">Durazno</div>
+      <div class="card-desc">Durazno intenso, frescura natural</div>
+      <span class="card-precio">$3.500</span>
+    </div>
+
+    <!-- WAFFLES -->
+    <div class="card-producto" data-categoria="waffles">
+      <img src="img/waffles.jpeg" alt="Waffles" class="card-img">
+      <div class="card-nombre">Waffles</div>
+      <div class="card-desc">Waffles esponjosos recién hechos</div>
+      <span class="card-precio">$14.000</span>
+    </div>
+    <div class="card-producto" data-categoria="waffles">
+      <img src="img/waffles-con-fresa-y-oreo.jpeg" alt="Waffles con fresa y oreo" class="card-img">
+      <div class="card-nombre">Waffles con fresa y oreo</div>
+      <div class="card-desc">Waffles con fresas frescas y galleta oreo</div>
+      <span class="card-precio">$14.000</span>
+    </div>
+
+    <!-- MALTEADAS -->
+    <div class="card-producto" data-categoria="malteadas">
+      <img src="img/malteada-minichip.jpeg" alt="Malteada minichip" class="card-img">
+      <div class="card-nombre">Malteada minichip</div>
+      <div class="card-desc">Malteada cremosa con chispas de chocolate</div>
+      <span class="card-precio">$12.000</span>
+    </div>
+
+    <!-- JUGOS -->
+    <div class="card-producto" data-categoria="jugos">
+      <img src="img/jugos-naturales-vitaminados.jpg" alt="Jugos naturales vitaminados" class="card-img">
+      <div class="card-nombre">Jugos naturales vitaminados</div>
+      <div class="card-desc">Jugos frescos y naturales llenos de vitaminas</div>
+      <span class="card-precio">$3.000</span>
+    </div>
+
+    <!-- ESPECIALES -->
+    <div class="card-producto" data-categoria="especiales">
+      <img src="img/ensalada-de-frutas.jpeg" alt="Ensalada de frutas" class="card-img">
+      <div class="card-nombre">Ensalada de frutas</div>
+      <div class="card-desc">Frutas frescas de temporada con crema y leche condensada</div>
+      <span class="card-precio">$15.000</span>
+    </div>
+    <div class="card-producto" data-categoria="especiales">
+      <img src="img/fresa-con-nutella.jpeg" alt="Fresa con nutella" class="card-img">
+      <div class="card-nombre">Fresa con nutella</div>
+      <div class="card-desc">Fresas frescas bañadas en deliciosa nutella</div>
+      <span class="card-precio">$16.000</span>
+    </div>
+    <div class="card-producto" data-categoria="especiales">
+      <img src="img/ensalada-con-helado.jpeg" alt="Ensalada con helado" class="card-img">
+      <div class="card-nombre">Ensalada con helado</div>
+      <div class="card-desc">Ensalada de frutas acompañada de helado cremoso</div>
+      <span class="card-precio">$14.000</span>
+    </div>
+    <div class="card-producto" data-categoria="especiales">
+      <img src="img/fresas-con-durazno.jpeg" alt="Fresas con durazno" class="card-img">
+      <div class="card-nombre">Fresas con durazno</div>
+      <div class="card-desc">Combinación perfecta de fresas y durazno fresco</div>
+      <span class="card-precio">$17.000</span>
+    </div>
+    <div class="card-producto" data-categoria="especiales">
+      <img src="img/fresa-con-chocorramo.jpeg" alt="Fresa con chocorramo" class="card-img">
+      <div class="card-nombre">Fresa con chocorramo</div>
+      <div class="card-desc">Fresas frescas con el sabor único del chocorramo</div>
+      <span class="card-precio">$15.000</span>
+    </div>
+
   </div>
 </section>
 
@@ -345,10 +445,9 @@
       <div class="horario-dia">Lunes a Sábado</div>
       <div class="horario-hora">10:00 am – 8:00 pm</div>
     </div>
-    
     <div class="horario-card">
       <div class="horario-dia">Domingos</div>
-      <div class="horario-hora">2:00 pm – 7:00 pm</div>
+      <div class="horario-hora">2:00 pm – 8:00 pm</div>
     </div>
   </div>
 </section>
@@ -358,10 +457,7 @@
   <h2 class="section-title">¿Dónde estamos?</h2>
   <p class="section-sub">Ven a visitarnos o escríbenos para pedidos a domicilio</p>
   <div class="ubicacion-inner">
-    <div class="mapa-placeholder">
-      📍
-      <p>https://maps.app.goo.gl/DGthJs1mE2jnM56M6</p>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1899.7365045619101!2d-73.36003646150245!3d8.245642652430492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677b91e0d057fd%3A0x707e4946bd5fca6b!2sCl.%204%20Sector%20D2%20%23%2024B-3%2C%20Oca%C3%B1a%2C%20Norte%20de%20Santander!5e1!3m2!1ses-419!2sco!4v1778883656109!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <div class="info-dir">
       <span class="info-icon">📍</span>
       <div class="info-texto">
@@ -373,16 +469,19 @@
       <span class="info-icon">📱</span>
       <div class="info-texto">
         <strong>WhatsApp</strong>
-        3153211626  -  3106691812
+        3153211626 - 3106691812
       </div>
     </div>
     <div class="info-dir">
       <span class="info-icon">📸</span>
       <div class="info-texto">
         <strong>Instagram</strong>
-       <a href="https://www.instagram.com/heladeria.shalom" target="_blank" class="social-link">
-  <i class="fab fa-instagram"></i> @heladeriashalom
-</a>
+        <a href="https://www.instagram.com/heladeria.shalom" target="_blank" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          @heladeria.shalom
+        </a>
       </div>
     </div>
   </div>
@@ -392,13 +491,28 @@
 <footer>
   <div class="footer-logo">Shalom 🍦</div>
   <p>Hecho con amor en Ocaña 🇨🇴 · © 2025 Heladería Shalom</p>
-  <p style="margin-top:8px;font-size:0.8rem;opacity:0.5">Página web desarrollada por [Creator Studio]</p>
+  <p style="margin-top:8px;font-size:0.8rem;opacity:0.5">Página web desarrollada por Creator Studio</p>
 </footer>
 
 <!-- BOTÓN FLOTANTE WHATSAPP -->
 <a href="https://wa.me/573153211626" class="wa-float" target="_blank">
   💬 Pedir ahora
 </a>
+
+<script>
+  function filtrar(boton, categoria) {
+    document.querySelectorAll('.card-producto').forEach(card => {
+      card.style.display = 'none';
+    });
+    document.querySelectorAll('[data-categoria="' + categoria + '"]').forEach(card => {
+      card.style.display = 'block';
+    });
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    boton.classList.add('active');
+  }
+
+  filtrar(document.querySelector('.tab'), 'helados');
+</script>
 
 </body>
 </html>
