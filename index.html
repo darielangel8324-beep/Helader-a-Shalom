@@ -261,6 +261,25 @@
     0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
     50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7); }
   }
+
+  @media (max-width: 600px) {
+  .hero {
+    padding: 80px 16px 40px;
+    min-height: auto;
+  }
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero-emoji {
+    font-size: 3.5rem;
+  }
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-img {
+    height: 120px;
+  }
+}
 </style>
 </head>
 <body>
